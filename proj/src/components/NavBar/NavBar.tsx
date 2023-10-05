@@ -4,6 +4,23 @@ import logoFull from '../../assets/logo/logoName.png'
 import logoImg from '../../assets/logo/logoImg.png'
 
 const NavBar = () => {
+
+
+	const handleAnchorCatalog = (e) => {
+		console.log(e.target)
+		window.location.href = "#catalog"
+	}
+
+	const handleAnchorGallery = (e) => {
+		console.log(e.target)
+		window.location.href = "#gallery"
+	}
+
+	const handleAnchorContacts = (e) => {
+		console.log(e.target)
+		window.location.href = "#contacts"
+	}
+
 	return (
 		<Box
 			sx={{
@@ -16,8 +33,7 @@ const NavBar = () => {
 		>
 
 			<Box
-				sx={{
-				}}
+
 			>
 
 				<img
@@ -38,19 +54,24 @@ const NavBar = () => {
 					display: {xs: 'none', md: 'flex'},
 					gap: 2,
 					'& .MuiTypography-root': {
-						fontWeight: 600
+						fontWeight: 600,
+						cursor: 'pointer'
 					}
 				}}
 			>
 				<Typography
-					onClick={() => console.log(window.scrollY)}
+					onClick={handleAnchorContacts}
 				>
 					Контакты
 				</Typography>
-				<Typography>
+				<Typography
+					onClick={handleAnchorGallery}
+				>
 					Портфолио
 				</Typography>
-				<Typography>
+				<Typography
+					onClick={handleAnchorCatalog}
+				>
 					Каталог
 				</Typography>
 			</Box>

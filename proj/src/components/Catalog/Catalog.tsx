@@ -31,6 +31,7 @@ const Catalog = () => {
 
 			<Typography
 				variant={'h2'}
+				id={'catalog'}
 				sx={{
 					textAlign: 'center',
 					my: 4
@@ -38,7 +39,9 @@ const Catalog = () => {
 			>
 
 				Что мы изготавливаем?
-
+		 		<a
+					href={'#catalog'}
+				></a>
 			</Typography>
 
 			{/*<Box

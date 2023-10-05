@@ -8,6 +8,21 @@ import imgTest1 from '../assets/IMG_1251-HDR.jpg'
 import InfoBlock from "../components/InfoBlock/InfoBlock";
 import Catalog from "../components/Catalog/Catalog";
 import logoFull from "../assets/logo/logoName.png";
+import Logo from "../components/Logo/Logo";
+import BackToTop from "../components/BackToTop/BackToTop";
+import NavDrawer from "../components/NavDrawer/NavDrawer";
+import MenuButton from "../components/MenuButton/MenuButton";
+import NavMenu from "../components/NavMenu/NavMenu";
+import MainMenu from "../components/MainMenu/MainMenu";
+import Contacts from "../components/Contacts/Contacts";
+import Gallery from "../components/Gallery/Gallery";
+
+const wrapperStyles = {
+	maxWidth: '1200px',
+	display: 'flex',
+	margin: 'auto',
+	flexDirection: 'column'
+}
 
 const MainPage = () => {
 
@@ -17,7 +32,7 @@ const MainPage = () => {
 
 	const handleScroll = () => {
 		console.log(window.scrollY)
-		setScroll(window.scrollY > 100)
+		setScroll(window.scrollY > 600)
 	}
 
 	useEffect(() => {
@@ -28,6 +43,7 @@ const MainPage = () => {
 
 	useEffect(() => {
 
+		console.log(scroll)
 		if (scroll) {
 
 		}
@@ -37,9 +53,7 @@ const MainPage = () => {
 	return (
 		<Box
 			onScroll={() => console.log(window.scrollY)}
-			sx={{
 
-			}}
 		>
 			{/*<Box
 				sx={{
@@ -62,6 +76,12 @@ const MainPage = () => {
 				/>
 
 			</Box>*/}
+
+			<MainMenu/>
+
+			<Logo in={scroll}/>
+			<BackToTop in={scroll}/>
+
 
 			<NavBar/>
 			
@@ -164,11 +184,7 @@ const MainPage = () => {
 
 			<Box
 				sx={{
-					maxWidth: '1200px',
-					display: 'flex',
-					margin: 'auto',
-					flexDirection: 'column',
-					justifyContent: 'center'
+					...wrapperStyles,
 				}}
 			>
 
@@ -211,6 +227,20 @@ const MainPage = () => {
 
 
 
+
+
+
+			<Box
+				sx={{
+					...wrapperStyles
+				}}
+			>
+
+				<Catalog/>
+
+			</Box>
+
+
 			<Box
 				sx={{
 					bgcolor: 'secondary.dark',
@@ -220,9 +250,7 @@ const MainPage = () => {
 
 				<Box
 					sx={{
-						maxWidth: '1300px',
-						display: 'flex',
-						margin: 'auto',
+						...wrapperStyles,
 						pb: 6
 					}}
 				>
@@ -237,17 +265,28 @@ const MainPage = () => {
 
 			<Box
 				sx={{
-					maxWidth: '1300px',
-					display: 'flex',
-					margin: 'auto'
+					...wrapperStyles
 				}}
 			>
-
-				<Catalog/>
-
+				<Gallery/>
 			</Box>
 
 
+			<Box
+				sx={{
+					bgcolor: 'secondary.dark'
+				}}
+			>
+				<Box
+					sx={{
+						...wrapperStyles,
+						'& .MuiTypography-root': {
+						}
+					}}
+				>
+					<Contacts/>
+				</Box>
+			</Box>
 
 		</Box>
 	);

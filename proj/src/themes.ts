@@ -18,8 +18,10 @@ export const theme = createTheme({
 		},
 		background: {
 			default: 'rgb(0,1,1)',
+			//default: 'rgb(234,234,234)',
 		},
 		text: {
+			//primary: 'rgb(0,0,0)',
 			primary: 'rgb(220,220,220)',
 			//secondary: '#e3a42e',
 			contrastText: 'rgb(0,0,0)',
