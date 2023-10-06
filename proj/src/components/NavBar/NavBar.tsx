@@ -1,6 +1,7 @@
 import React from 'react';
 import {Box, Button, Typography} from "@mui/material";
 import logoFull from '../../assets/logo/logoName.png'
+import logoFullBlack from '../../assets/logo/logoNameBlack.png'
 import logoImg from '../../assets/logo/logoImg.png'
 
 const NavBar = () => {
@@ -28,7 +29,8 @@ const NavBar = () => {
 				justifyContent: 'space-between',
 				alignItems: 'center',
 				px: 4,
-				py: 2
+				py: 2,
+				bgcolor: 'text.primary'
 			}}
 		>
 
@@ -37,7 +39,7 @@ const NavBar = () => {
 			>
 
 				<img
-					src={logoFull}
+					src={logoFullBlack}
 					alt=""
 					style={{
 						maxWidth: '250px',
@@ -55,7 +57,8 @@ const NavBar = () => {
 					gap: 2,
 					'& .MuiTypography-root': {
 						fontWeight: 600,
-						cursor: 'pointer'
+						cursor: 'pointer',
+						color: 'primary.contrastText'
 					}
 				}}
 			>
