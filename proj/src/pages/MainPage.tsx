@@ -188,7 +188,9 @@ const MainPage = () => {
 					title={'О нас'}
 					maxHeight={600}
 				>
-					<Typography>
+					<Typography
+
+					>
 						Декорирование стыков разных материалов металлической полосой — самое простое эстетическое и функциональное решение.
 					</Typography>
 					<Typography>

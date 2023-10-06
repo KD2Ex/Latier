@@ -46,7 +46,8 @@ const NavDrawer = ({open, setOpen}) => {
 					{hrefList.map(item => (
 						<ListItemButton
 							onClick={() => {
-								window.location.href = item.href
+								window.location.href = item.href;
+								setOpen(false)
 							}}
 						>
 

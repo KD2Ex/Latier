@@ -39,6 +39,8 @@ const ImageText: FC<ImageTextProps> =
 				md={6}
 			>
 				<img
+					id={'about'}
+
 					style={{
 						width: '100%',
 						height: '100%',
@@ -68,6 +70,8 @@ const ImageText: FC<ImageTextProps> =
 						fontWeight: 600
 					}}
 				>
+					<a href="#about"></a>
+
 					{title}
 				</Typography>
 				{children}
