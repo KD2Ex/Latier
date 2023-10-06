@@ -19,7 +19,8 @@ const CatalogItem: FC<CatalogItemProps> =
 		<Grid
 			item
 			xs={12}
-			md={4}
+			sm={6}
+			lg={4}
 			sx={{
 				display: 'flex',
 				alignItems: 'center',
@@ -30,7 +31,6 @@ const CatalogItem: FC<CatalogItemProps> =
 		>
 			<Box
 				sx={{
-					p: 3,
 					transition: 'background-color 300ms',
 					borderRadius: 2,
 					"&:hover" : {
@@ -41,8 +41,12 @@ const CatalogItem: FC<CatalogItemProps> =
 				<Box
 					component={'img'}
 					sx={{
-						width: {xs: '200px', md: '350px'},
-						height: {xs: '200px', md: '350px'},
+						/*width: {xs: '200px', md: '350px'},
+						height: {xs: '200px', md: '350px'},*/
+						width: '100%',
+						height: '90%',
+						px: 2,
+						pt: 2
 					}}
 					src={image}
 					alt={name}

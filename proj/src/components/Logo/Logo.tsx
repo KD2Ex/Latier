@@ -36,6 +36,9 @@ const transitionStyles = {
 
 const Logo = ({in: inProp}) => {
 	const nodeRef = useRef(null)
+	const handleClick = () => {
+		window.scrollTo(0,0)
+	}
 
 	return (
 		<Transition
@@ -45,6 +48,7 @@ const Logo = ({in: inProp}) => {
 		>
 			{state => (
 				<Box
+					onClick={handleClick}
 					ref={nodeRef}
 					sx={{
 						...defaultStyles,
@@ -55,6 +59,7 @@ const Logo = ({in: inProp}) => {
 						src={logoFull}
 						alt=""
 						style={{
+							cursor: 'pointer',
 							maxWidth: '64px',
 							maxHeight: '64px',
 							marginTop: 8

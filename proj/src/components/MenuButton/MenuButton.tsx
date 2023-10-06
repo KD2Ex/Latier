@@ -11,7 +11,8 @@ const defaultStyles = {
 	mr: 2,
 	my: 2,
 	borderRadius: 0,
-	transition: `opacity 300ms`
+	transition: `opacity 300ms`,
+	zIndex: 1200,
 }
 
 const transitionStyles = {
@@ -40,7 +41,6 @@ const MenuButton = ({in: inProp, setOpen}) => {
 
 	const handleClick = () => {
 		setOpen(true);
-
 	}
 
 	return (

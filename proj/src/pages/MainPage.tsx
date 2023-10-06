@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Box, Grid, Typography} from "@mui/material";
+import {Box, Grid, Typography, useMediaQuery, useTheme} from "@mui/material";
 import NavBar from "../components/NavBar/NavBar";
 import img1 from "../assets/img1_cropped.jpg";
 //import img1 from "../assets/brass-PhotoRoom (1).png";
@@ -9,29 +9,26 @@ import InfoBlock from "../components/InfoBlock/InfoBlock";
 import Catalog from "../components/Catalog/Catalog";
 import logoFull from "../assets/logo/logoName.png";
 import Logo from "../components/Logo/Logo";
-import BackToTop from "../components/BackToTop/BackToTop";
-import NavDrawer from "../components/NavDrawer/NavDrawer";
-import MenuButton from "../components/MenuButton/MenuButton";
-import NavMenu from "../components/NavMenu/NavMenu";
 import MainMenu from "../components/MainMenu/MainMenu";
 import Contacts from "../components/Contacts/Contacts";
 import Gallery from "../components/Gallery/Gallery";
+import Footer from "../components/Footer/Footer";
 
 const wrapperStyles = {
-	maxWidth: '1200px',
+	maxWidth: '1100px',
 	display: 'flex',
 	margin: 'auto',
-	flexDirection: 'column'
+	flexDirection: 'column',
+	px: {xs: 4, md: 0}
+
 }
 
 const MainPage = () => {
 
-	console.log(window.scrollY)
 
 	const [scroll, setScroll] = useState(false);
 
 	const handleScroll = () => {
-		console.log(window.scrollY)
 		setScroll(window.scrollY > 600)
 	}
 
@@ -41,19 +38,15 @@ const MainPage = () => {
 
 	}, [])
 
-	useEffect(() => {
-
-		console.log(scroll)
-		if (scroll) {
-
-		}
-
-	}, [scroll])
+	const theme = useTheme();
+	const xs = useMediaQuery(theme.breakpoints.down('lg'));
+	console.log(xs)
 
 	return (
 		<Box
 			onScroll={() => console.log(window.scrollY)}
-
+			sx={{
+			}}
 		>
 			{/*<Box
 				sx={{
@@ -77,10 +70,11 @@ const MainPage = () => {
 
 			</Box>*/}
 
-			<MainMenu/>
-
-			<Logo in={scroll}/>
-			<BackToTop in={scroll}/>
+			<MainMenu scroll={scroll}/>
+			{!xs && (
+				<Logo in={scroll}/>
+			)}
+		{/*	<BackToTop in={scroll}/>*/}
 
 
 			<NavBar/>
@@ -96,6 +90,8 @@ const MainPage = () => {
 					justifyContent: 'space-between',
 					alignItems: 'center',
 					mb: 16,
+					px: {md: 4, lg: 1},
+					position: 'relative'
 				}}
 			>
 				<Grid
@@ -106,9 +102,9 @@ const MainPage = () => {
 					<Typography
 						variant={'h2'}
 						sx={{
-							pb: 16,
 							pl: {xs: 4, lg: 0},
 							textAlign: 'left',
+							zIndex: 1200,
 							"& span": {
 								color: 'primary.main',
 							}
@@ -119,17 +115,16 @@ const MainPage = () => {
 
 				</Grid>
 
-
 				<Grid
 					item
 					xs={12}
 					md={6}
 					sx={{
-						height: '100%',
-						display: {xs: 'none', md: 'flex'},
+						height: {xs: 'auto', md: '100%'},
+						//display: {xs: 'none', md: 'flex'},
 						flexDirection: 'column',
-						justifyContent: 'flex-end'
-
+						justifyContent: {xs: 'flex-start', md: 'flex-end'},
+						display: 'flex'
 					}}
 				>
 					<Box
@@ -137,19 +132,19 @@ const MainPage = () => {
 						src={img1}
 						sx={{
 							objectFit: 'contain',
-							width: '600px',
-							height: '850px',
+							width: '100%',
 							opacity: '0.7',
 							transition: 'opacity 300ms',
 							right: 0,
+							bottom: 0,
 							'&:hover': {
-								opacity: '1.2'
+								opacity: '1'
 							},
-							objectPosition: 'bottom center'
+							objectPosition: 'bottom center',
+							zIndex: 1000,
 						}}
 					>
-				</Box>
-
+					</Box>
 
 				</Grid>
 				{/*<img
@@ -274,7 +269,9 @@ const MainPage = () => {
 
 			<Box
 				sx={{
-					bgcolor: 'secondary.dark'
+					bgcolor: 'secondary.dark',
+
+
 				}}
 			>
 				<Box
@@ -288,6 +285,8 @@ const MainPage = () => {
 				</Box>
 			</Box>
 
+
+			<Footer/>
 		</Box>
 	);
 };

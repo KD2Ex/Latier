@@ -1,7 +1,7 @@
-import {createTheme} from "@mui/material";
+import {createTheme, responsiveFontSizes} from "@mui/material";
 
 
-export const theme = createTheme({
+export let theme = createTheme({
 
 	palette: {
 		contrastThreshold: 3,
@@ -30,7 +30,10 @@ export const theme = createTheme({
 		mode: 'dark',
 	},
 	typography: {
-		fontFamily: 'Montserrat, sans-serif'
+		fontFamily: 'Montserrat, sans-serif',
+		xs: {
+			fontSize: 12
+		}
 	},
 	components: {
 		MuiButton: {
@@ -59,4 +62,6 @@ export const theme = createTheme({
 			}
 		}
 	}
-})
+});
+
+theme = responsiveFontSizes(theme);

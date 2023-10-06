@@ -3,11 +3,10 @@ import MenuButton from "../MenuButton/MenuButton";
 import NavMenu from "../NavMenu/NavMenu";
 import NavDrawer from "../NavDrawer/NavDrawer";
 
-const MainMenu = () => {
+const MainMenu = ({scroll}) => {
 
 	const [open, setOpen] = useState(false)
 	const [anchor, setAnchor] = useState(null);
-	const scroll = window.scrollY > 600
 
 	const handleClick = (e) => {
 		setAnchor(e.currentTarget)

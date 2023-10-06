@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import {CssBaseline, ThemeProvider} from "@mui/material";
-import {theme} from "./themes";
+import {CssBaseline, responsiveFontSizes, ThemeProvider} from "@mui/material";
 import {BrowserRouter, createBrowserRouter, RouterProvider} from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import './styles.css'
+import {responsiveProperty} from "@mui/material/styles/cssUtils";
+import {theme} from "./themes";
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
 			element: <MainPage/>
 		}
 	])
+
 
 	return (
 		<ThemeProvider theme={theme}>

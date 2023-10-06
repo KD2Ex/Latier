@@ -1,22 +1,7 @@
 import React from 'react';
 import {Drawer, List, ListItemButton, Menu, MenuItem} from "@mui/material";
 import imgFull from '../../assets/logo/logoFull.png'
-
-const list = [
-	{
-		title: 'Каталог',
-		href: '#catalog'
-	},
-	{
-		title: 'Портфолио',
-		href: '#gallery'
-	},
-	{
-		title: 'Контакты',
-		href: '#contacts'
-	},
-
-]
+import {hrefList} from "../../data";
 
 const NavDrawer = ({open, setOpen}) => {
 
@@ -31,6 +16,12 @@ const NavDrawer = ({open, setOpen}) => {
 				anchor={'right'}
 				open={open}
 				onClose={handleClose}
+				sx={{
+					'& .MuiPaper-root': {
+						//bgcolor: 'secondary.dark'
+
+					}
+				}}
 			>
 
 				<List
@@ -52,7 +43,7 @@ const NavDrawer = ({open, setOpen}) => {
 
 						}}
 					/>
-					{list.map(item => (
+					{hrefList.map(item => (
 						<ListItemButton
 							onClick={() => {
 								window.location.href = item.href

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Box, Grid, Typography} from "@mui/material";
 import logo from "../../Logo/Logo";
 
-const GalleryItem = ({title, image}) => {
+const GalleryItem = ({title, image, onClick}) => {
 
 	const [visible, setVisible] = useState(false)
 
@@ -14,13 +14,14 @@ const GalleryItem = ({title, image}) => {
 		setVisible(false)
 	}
 
+
+
 	return (
 		<Grid
 			item
 			xs={12}
 			md={6}
 			lg={3}
-
 			sx={{
 				display: 'flex',
 				flexDirection: 'column',
@@ -30,6 +31,7 @@ const GalleryItem = ({title, image}) => {
 		>
 
 			<Box
+				onClick={onClick}
 				component={'img'}
 				onMouseEnter={handleMouseEnter}
 				onMouseLeave={handleMouseLeave}
@@ -48,8 +50,6 @@ const GalleryItem = ({title, image}) => {
 			/>
 
 			<Typography
-				onMouseEnter={handleMouseEnter}
-				onMouseLeave={handleMouseLeave}
 				sx={{
 					opacity: `${visible ? '1' : '0'}`,
 					textAlign: 'center',
@@ -63,7 +63,8 @@ const GalleryItem = ({title, image}) => {
 					zIndex: 1600,
 					transform: 'translate(-50%, -50%)',
 					transition: ' opacity 300ms',
-
+					pointerEvents: 'none',
+					cursor: 'pointer'
 				}}
 			>
 				{title}
