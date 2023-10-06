@@ -4,8 +4,7 @@ import gal1 from '../../assets/gal1.jpg'
 import gal2 from '../../assets/gal2.jpg'
 import gal3 from '../../assets/gal3.jpg'
 import GalleryItem from "./GalleryItem/GalleryItem";
-//import ImageViewer from 'react-simple-image-viewer';
-import ImageViewer from 'react-images-viewer';
+import ImageViewer from '@haz3l/react-images-viewer';
 
 const list = [
 	{
