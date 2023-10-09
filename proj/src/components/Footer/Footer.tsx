@@ -2,6 +2,7 @@ import React from 'react';
 import {Box, Typography} from "@mui/material";
 import {hrefList} from "../../data";
 import imgName from '../../assets/logo/logoName.png'
+import NavigationLink from "../NavigationLink/NavigationLink";
 
 const Footer = () => {
 
@@ -35,13 +36,22 @@ const Footer = () => {
 					alignItems: 'center'
 				}}
 			>
-				{hrefList.map(item => (
-					<Typography
+				{hrefList.map((item, index) => (
+					<NavigationLink
+						variant={'xs'}
+						sx={{
+							cursor: 'pointer'
+						}}
+						key={index}
+						href={item.href}
+						body={item.title}
+					/>
+					/*<Typography
 						variant={'xs'}
 					>
 						<a href={item.href}></a>
 						{item.title}
-					</Typography>
+					</Typography>*/
 				))}
 			</Box>
 

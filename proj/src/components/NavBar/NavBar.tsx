@@ -3,24 +3,10 @@ import {Box, Button, Typography} from "@mui/material";
 import logoFull from '../../assets/logo/logoName.png'
 import logoFullBlack from '../../assets/logo/logoNameBlack.png'
 import logoImg from '../../assets/logo/logoImg.png'
+import NavigationLink from "../NavigationLink/NavigationLink";
+import {hrefList} from "../../data";
 
 const NavBar = () => {
-
-
-	const handleAnchorCatalog = (e) => {
-		console.log(e.target)
-		window.location.href = "#catalog"
-	}
-
-	const handleAnchorGallery = (e) => {
-		console.log(e.target)
-		window.location.href = "#gallery"
-	}
-
-	const handleAnchorContacts = (e) => {
-		console.log(e.target)
-		window.location.href = "#contacts"
-	}
 
 	return (
 		<Box
@@ -62,21 +48,15 @@ const NavBar = () => {
 					}
 				}}
 			>
-				<Typography
-					onClick={handleAnchorContacts}
-				>
-					Контакты
-				</Typography>
-				<Typography
-					onClick={handleAnchorGallery}
-				>
-					Портфолио
-				</Typography>
-				<Typography
-					onClick={handleAnchorCatalog}
-				>
-					Каталог
-				</Typography>
+
+				{hrefList.map((item, index) => (
+					<NavigationLink
+						key={index}
+						href={item.href}
+						body={item.title}
+					/>
+				) )}
+
 			</Box>
 
 

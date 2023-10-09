@@ -2,6 +2,7 @@ import React from 'react';
 import {Drawer, List, ListItemButton, Menu, MenuItem} from "@mui/material";
 import imgFull from '../../assets/logo/logoFull.png'
 import {hrefList} from "../../data";
+import NavigationLink from "../NavigationLink/NavigationLink";
 
 const NavDrawer = ({open, setOpen}) => {
 
@@ -43,15 +44,15 @@ const NavDrawer = ({open, setOpen}) => {
 
 						}}
 					/>
-					{hrefList.map(item => (
-						<ListItemButton
-							onClick={() => {
-								window.location.href = item.href;
-								setOpen(false)
-							}}
-						>
+					{hrefList.map((item, index) => (
 
-							{item.title}
+						<ListItemButton>
+							<NavigationLink
+								key={index}
+								href={item.href}
+								body={item.title}
+							/>
+
 						</ListItemButton>
 					))}
 				</List>
