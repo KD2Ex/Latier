@@ -46,13 +46,15 @@ const NavDrawer = ({open, setOpen}) => {
 					/>
 					{hrefList.map((item, index) => (
 
-						<ListItemButton>
-							<NavigationLink
-								key={index}
-								href={item.href}
-								body={item.title}
-							/>
+						<ListItemButton
+							key={index}
+							onClick={() => {
+								window.location.href = item.href;
+								setOpen(false)
+							}}
+						>
 
+							{item.title}
 						</ListItemButton>
 					))}
 				</List>
