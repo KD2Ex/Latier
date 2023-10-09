@@ -4,7 +4,7 @@ import {Grid, Typography} from "@mui/material";
 
 interface BlockItemProps {
 
-	image?: string,
+	Image?: string,
 	title: string,
 	body: string
 
@@ -12,7 +12,7 @@ interface BlockItemProps {
 
 const BlockItem: FC<BlockItemProps> =
 	({
-		 image,
+		 Image,
 		 title,
 		 body
 	}) => {
@@ -29,12 +29,13 @@ const BlockItem: FC<BlockItemProps> =
 			}}
 		>
 
-			{image && <img
+			{Image && <img
                 style={{
 					width: '64px',
 					height: '64px',
+
 				}}
-                src={image}
+                src={Image}
                 alt=""
             />}
 

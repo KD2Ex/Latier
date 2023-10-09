@@ -3,6 +3,8 @@ import {Box, Grid, Typography} from "@mui/material";
 import {data} from "./data";
 import BlockItem from "./BlockItem/BlockItem";
 
+
+
 interface InfoBlockProps {
 
 	title: string,
@@ -48,6 +50,7 @@ const InfoBlock: FC<InfoBlockProps> =
 						key={index}
 						title={item.title}
 						body={item.body}
+						Image={item.image}
 					/>
 				))}
 
